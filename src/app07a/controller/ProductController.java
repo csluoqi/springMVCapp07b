@@ -4,6 +4,8 @@ import javax.validation.Valid;
 
 
 
+
+import org.apache.log4j.Logger;
 //import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +19,10 @@ import app07a.domain.Product;
 public class ProductController
 {
   //private static final org.jboss.logging.Logger log = org.jboss.logging.Logger.getLogger(ProductController.class);
-
+    private static Logger log = Logger.getLogger(ProductController.class);
     @RequestMapping(value = "/product_input")
     public String inputProduct(Model model) {
-        //log.info("test log4j");
+        log.info("test log4j");
         model.addAttribute("product", new Product());
         return "ProductForm";
     }

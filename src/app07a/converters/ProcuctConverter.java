@@ -40,7 +40,6 @@ public class ProcuctConverter implements  Converter<String, Date>
     @Override
     public Date convert(String source)
     {
-
         try
         {
             SimpleDateFormat dateFormate = new SimpleDateFormat("yyyy-MM-dd");
@@ -48,6 +47,9 @@ public class ProcuctConverter implements  Converter<String, Date>
             return dateFormate.parse(source);
         } catch (ParseException e)
         {
+            //现在有一个问题就是Spring 中如果有多个converter不同的日期格式那么Spring是如何决定用那个的，其次还是
+            //就是这个格式可以利用js插件来完善，但是一个系统中如果有两个日期格式那么该怎么确定
+            //这里可以看看Spring学习指南里面的知识
             //这里抛出一个异常之后,页面就可以会返回在i18n.properties的文件中的错误信息
             //如果这里返回null，那么就会转到ｖalidator,然后提示ｖalidator的提示信息，这应该是一个完整的流程了
             throw new IllegalArgumentException("invalid 1234567");
